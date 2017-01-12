@@ -26,15 +26,17 @@ class DomainSelector extends Component {
 
 	render() {
 		return (
-			<div>
-				<label>Enter domain here:</label>
-				<input
-					type="text"
-					value={this.state.domain}
-					onChange={this.handleChange.bind(this)}
-				/>
-				{this.renderIcon()}
-			</div>
+			<form className="domain-form">
+				<label>Enter domain</label>
+				<div className="domain-field">
+					<input
+						type="text"
+						value={this.state.domain}
+						onChange={this.handleChange.bind(this)}
+					/>
+					{this.renderIcon()}
+				</div>
+			</form>
 		);
 	}
 }

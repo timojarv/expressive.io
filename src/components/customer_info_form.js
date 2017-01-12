@@ -33,7 +33,7 @@ class CustomerInfoForm extends Component {
 
 	render() {
 		return (
-			<form>
+			<form className="customer-info">
 				<label>Full Name</label>
 				<input
 					type="text"

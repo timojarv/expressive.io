@@ -47,14 +47,11 @@ export default class BuyWidget extends React.Component {
 		return (
 			<div className="buy-widget modal-bg">
 				<div className="modal">
-					<div className="heading">
-						Buying product: {product.name}
-						<Link to="/" className="close">Close</Link>
-					</div>
 					<div className="content">
 						{this.renderPage()}
 					</div>
-					<a className="footer" href="#" onClick={this.nextPage}>Next</a>
+					<Link to="/" className="button button-outline">Cancel</Link>
+					<div className="float-right"><a className="button" href="#" onClick={this.nextPage}>Continue</a></div>
 				</div>
 			</div>
 		);

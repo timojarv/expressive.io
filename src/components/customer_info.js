@@ -5,7 +5,7 @@ import CustomerInfoForm from './customer_info_form';
 export default function() {
 	return (
 		<div>
-			<p>Please start by filling out the following fields.</p>
+			<h4> Enter Your Information</h4>
 			<CustomerInfoForm />
 		</div>
 	);

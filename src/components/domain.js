@@ -5,8 +5,8 @@ import DomainSelector from './domain_selector';
 
 export default function(props) {
 	return (
-		<div className="domain-form">
-			Choose a domain here!
+		<div>
+			<h4>Choose a Domain Name</h4>
 			<DomainSelector />
 		</div>
 	);
