@@ -9,6 +9,7 @@ const products = [
 	}
 ];
 
-export default products.map((product) => {
-	return { ...product, id: product.name.toLowerCase() };
+module.exports = products.map((product) => {
+	product.id = product.name.toLowerCase();
+	return product;
 });

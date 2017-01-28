@@ -1,18 +1,21 @@
-import React from 'react';
-import products from '../data/products';
+import React, { Component } from 'react';
+import * as actions from '../actions';
+import { connect } from 'react-redux';
 
 import ProductItem from './product_item';
 
-export default class App extends React.Component {
+class App extends Component {
+	componentWillMount() {
+		this.props.loadProducts();
+	}
 
 	renderProducts() {
-		return products.map((product) => <ProductItem key={product.id} product={product} />);
+		return this.props.products.map((product) => <ProductItem key={product.id} product={product} />);
 	}
 
 	render() {
 		return (
 			<div className="app">
-				<h1>Welcome to Expressive.io!</h1>
 				<h2>Find your perfect website package!</h2>
 				{this.renderProducts()}
 				{this.props.children}
@@ -20,3 +23,11 @@ export default class App extends React.Component {
 		);
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		products: state.products
+	};
+}
+
+export default connect(mapStateToProps, actions)(App);

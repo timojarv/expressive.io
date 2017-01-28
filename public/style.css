@@ -46,6 +46,10 @@ body {
 	fill: #ff5a3c;
 }
 
+.icon--ei-spinner-3 {
+	fill: #9B4DCA;
+}
+
 form.customer-info {
 	color: #333;
 	display: flex;

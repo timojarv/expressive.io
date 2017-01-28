@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link, Route } from 'react-router';
+import { connect } from 'react-redux'
 
-import products from '../data/products';
-
-import CustomerInfo from './customer_info';
 import Domain from './domain';
+import CustomerInfo from './customer_info';
 import Payment from './payment';
 
-export default class BuyWidget extends React.Component {
+class BuyWidget extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -25,16 +24,16 @@ export default class BuyWidget extends React.Component {
 	}
 
 	findProductWithId(id) {
-		const found = products.filter( (product) => (id === product.id) );
+		const found = this.props.products.filter( (product) => (id === product.id) );
 		return found[0];
 	}
 
 	renderPage() {
 		switch(this.state.page) {
 			case 0:
-				return <CustomerInfo />;
-			case 1:
 				return <Domain />;
+			case 1:
+				return <CustomerInfo />;
 			case 2:
 				return <Payment />;
 		}
@@ -57,3 +56,11 @@ export default class BuyWidget extends React.Component {
 		);
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		products: state.products
+	};
+}
+
+export default connect(mapStateToProps)(BuyWidget);

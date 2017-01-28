@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const productData = require("../data/products");
 //const dnsimple = require("dnsimple");
 const domainr = require("domainr-api");
 
@@ -18,12 +19,10 @@ router.get("/", (req, res) => {
 	});
 });
 
-router.get("/dnsimple", (req ,res) => {
-	client.identity.whoami().then(response => {
-		res.json(response);
-	}).catch(err => {
-		console.log(err);
-		res.status(500).end();
+router.get("/products", (req, res) => {
+	res.json({
+		status: 'ok',
+		products: productData
 	});
 });
 
